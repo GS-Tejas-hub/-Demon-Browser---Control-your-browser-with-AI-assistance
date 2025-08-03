@@ -40,12 +40,14 @@ def create_browser_settings_tab(webui_manager: WebuiManager):
                 label="Browser Binary Path",
                 lines=1,
                 interactive=True,
+                value=os.getenv("BROWSER_PATH", ""),
                 placeholder="e.g. '/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome'"
             )
             browser_user_data_dir = gr.Textbox(
                 label="Browser User Data Dir",
                 lines=1,
                 interactive=True,
+                value=os.getenv("BROWSER_USER_DATA", ""),
                 placeholder="Leave it empty if you use your default user data",
             )
     with gr.Group():

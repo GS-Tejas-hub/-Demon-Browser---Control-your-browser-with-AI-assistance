@@ -1,17 +1,17 @@
-<img src="./assets/web-ui.png" alt="Browser Use Web UI" width="full"/>
+# 🌐 Demon Browser - Control your browser with AI assistance
+
+<img src="./assets/web-ui.png" alt="Demon Browser" width="full"/>
 
 <br/>
 
-[![GitHub stars](https://img.shields.io/github/stars/browser-use/web-ui?style=social)](https://github.com/browser-use/web-ui/stargazers)
-[![Discord](https://img.shields.io/discord/1303749220842340412?color=7289DA&label=Discord&logo=discord&logoColor=white)](https://link.browser-use.com/discord)
-[![Documentation](https://img.shields.io/badge/Documentation-📕-blue)](https://docs.browser-use.com)
-[![WarmShao](https://img.shields.io/twitter/follow/warmshao?style=social)](https://x.com/warmshao)
+[![GitHub stars](https://img.shields.io/github/stars/GS-Tejas-hub/-Demon-Browser---Control-your-browser-with-AI-assistance?style=social)](https://github.com/GS-Tejas-hub/-Demon-Browser---Control-your-browser-with-AI-assistance/stargazers)
+[![Deploy on Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/GS-Tejas-hub/-Demon-Browser---Control-your-browser-with-AI-assistance)
 
 This project builds upon the foundation of the [browser-use](https://github.com/browser-use/browser-use), which is designed to make websites accessible for AI agents.
 
 We would like to officially thank [WarmShao](https://github.com/warmshao) for his contribution to this project.
 
-**WebUI:** is built on Gradio and supports most of `browser-use` functionalities. This UI is designed to be user-friendly and enables easy interaction with the browser agent.
+**Demon Browser:** is built on Gradio and supports most of `browser-use` functionalities. This UI is designed to be user-friendly and enables easy interaction with the browser agent.
 
 **Expanded LLM Support:** We've integrated support for various Large Language Models (LLMs), including: Google, OpenAI, Azure OpenAI, Anthropic, DeepSeek, Ollama etc. And we plan to add support for even more models in the future.
 
@@ -19,18 +19,40 @@ We would like to officially thank [WarmShao](https://github.com/warmshao) for hi
 
 **Persistent Browser Sessions:** You can choose to keep the browser window open between AI tasks, allowing you to see the complete history and state of AI interactions.
 
-<video src="https://github.com/user-attachments/assets/56bc7080-f2e3-4367-af22-6bf2245ff6cb" controls="controls">Your browser does not support playing this video!</video>
+## 🚀 Quick Deploy
 
-## Installation Guide
+### Deploy on Vercel (Recommended)
+
+1. Click the "Deploy on Vercel" button above
+2. Add your environment variables in the Vercel dashboard
+3. Deploy and enjoy!
+
+### Environment Variables for Vercel
+
+Add these environment variables in your Vercel project settings:
+
+```
+OPENAI_API_KEY=your_openai_api_key_here
+GOOGLE_API_KEY=your_google_api_key_here
+ANTHROPIC_API_KEY=your_anthropic_api_key_here
+DEEPSEEK_API_KEY=your_deepseek_api_key_here
+AZURE_OPENAI_API_KEY=your_azure_openai_api_key_here
+AZURE_OPENAI_ENDPOINT=your_azure_openai_endpoint_here
+BROWSER_PATH=C:\Program Files\Google\Chrome\Application\chrome.exe
+BROWSER_USER_DATA=C:\Users\username\AppData\Local\Google\Chrome\User Data\Profile 2
+USE_OWN_BROWSER=false
+KEEP_BROWSER_OPEN=true
+SKIP_LLM_API_KEY_VERIFICATION=false
+```
+
+## 📦 Local Installation
 
 ### Option 1: Local Installation
 
-Read the [quickstart guide](https://docs.browser-use.com/quickstart#prepare-the-environment) or follow the steps below to get started.
-
 #### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/browser-use/web-ui.git
-cd web-ui
+git clone https://github.com/GS-Tejas-hub/-Demon-Browser---Control-your-browser-with-AI-assistance.git
+cd -Demon-Browser---Control-your-browser-with-AI-assistance
 ```
 
 #### Step 2: Set Up Python Environment
@@ -82,7 +104,7 @@ cp .env.example .env
 ```
 2. Open `.env` in your preferred text editor and add your API keys and other settings
 
-#### Step 5: Enjoy the web-ui
+#### Step 5: Enjoy the Demon Browser
 1.  **Run the WebUI:**
     ```bash
     python webui.py --ip 127.0.0.1 --port 7788
@@ -101,21 +123,20 @@ cp .env.example .env
          BROWSER_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
          BROWSER_USER_DATA="/Users/YourUsername/Library/Application Support/Google/Chrome"
         ```
-    - Close all Chrome windows
-    - Open the WebUI in a non-Chrome browser, such as Firefox or Edge. This is important because the persistent browser context will use the Chrome data when running the agent.
-    - Check the "Use Own Browser" option within the Browser Settings.
+        > Note: Replace `YourUsername` with your actual Mac username for Mac systems.
+      - Linux
+        ```env
+         BROWSER_PATH="/usr/bin/google-chrome"
+         BROWSER_USER_DATA="/home/YourUsername/.config/google-chrome"
+        ```
+        > Note: Replace `YourUsername` with your actual Linux username for Linux systems.
 
 ### Option 2: Docker Installation
 
-#### Prerequisites
-- Docker and Docker Compose installed
-  - [Docker Desktop](https://www.docker.com/products/docker-desktop/) (For Windows/macOS)
-  - [Docker Engine](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/install/) (For Linux)
-
 #### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/browser-use/web-ui.git
-cd web-ui
+git clone https://github.com/GS-Tejas-hub/-Demon-Browser---Control-your-browser-with-AI-assistance.git
+cd -Demon-Browser---Control-your-browser-with-AI-assistance
 ```
 
 #### Step 2: Configure Environment
@@ -130,13 +151,9 @@ cp .env.example .env
 ```
 2. Open `.env` in your preferred text editor and add your API keys and other settings
 
-#### Step 3: Docker Build and Run
+#### Step 3: Build and Run with Docker Compose
 ```bash
 docker compose up --build
-```
-For ARM64 systems (e.g., Apple Silicon Macs), please run follow command:
-```bash
-TARGETPLATFORM=linux/arm64 docker compose up --build
 ```
 
 #### Step 4: Enjoy the web-ui and vnc
@@ -145,7 +162,39 @@ TARGETPLATFORM=linux/arm64 docker compose up --build
   - Default VNC password: "youvncpassword"
   - Can be changed by setting `VNC_PASSWORD` in your `.env` file
 
-## Changelog
-- [x] **2025/01/26:** Thanks to @vvincent1234. Now browser-use-webui can combine with DeepSeek-r1 to engage in deep thinking!
-- [x] **2025/01/10:** Thanks to @casistack. Now we have Docker Setup option and also Support keep browser open between tasks.[Video tutorial demo](https://github.com/browser-use/web-ui/issues/1#issuecomment-2582511750).
-- [x] **2025/01/06:** Thanks to @richard-devbot. A New and Well-Designed WebUI is released. [Video tutorial demo](https://github.com/warmshao/browser-use-webui/issues/1#issuecomment-2573393113).
+## 🎯 Features
+
+- **🌐 Demon Browser Interface**: Beautiful royal gold themed UI
+- **🤖 AI Agents**: Multiple AI agents built on Demon Browser
+- **🔧 Custom Browser Support**: Use your own browser with profiles
+- **📱 Persistent Sessions**: Keep browser open between tasks
+- **🎨 Multiple LLM Support**: OpenAI, Google, Anthropic, DeepSeek, Ollama, and more
+- **📹 Screen Recording**: High-definition browser interaction recording
+- **🔒 Secure**: Environment variable based configuration
+
+## 🛠️ Development
+
+### Running Tests
+```bash
+python -m pytest tests/
+```
+
+### Contributing
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- **WarmShao**: Original browser-use project
+- **Demon King**: Demon Browser branding and development
+- **Demon AI**: Powered by Demon AI
+
+---
+
+**Powered By Demon AI | Developed by [Demon King](https://gs-tejas-hub.github.io/Demon-s-Portfolio/)**

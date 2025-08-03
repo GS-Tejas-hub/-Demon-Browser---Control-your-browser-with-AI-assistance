@@ -83,10 +83,13 @@ async def run_single_browser_task(
         logger.info(f"Starting browser task for query: {task_query}")
         extra_args = []
         if use_own_browser:
-            browser_binary_path = os.getenv("BROWSER_PATH", None) or browser_binary_path
-            if browser_binary_path == "":
-                browser_binary_path = None
-            browser_user_data = browser_user_data_dir or os.getenv("BROWSER_USER_DATA", None)
+            # Use UI component values first, fallback to environment variables only if UI values are empty
+            if not browser_binary_path or browser_binary_path == "":
+                browser_binary_path = os.getenv("BROWSER_PATH", None)
+            if not browser_user_data_dir or browser_user_data_dir == "":
+                browser_user_data = os.getenv("BROWSER_USER_DATA", None)
+            else:
+                browser_user_data = browser_user_data_dir
             if browser_user_data:
                 extra_args += [f"--user-data-dir={browser_user_data}"]
         else:

@@ -21,6 +21,62 @@ theme_map = {
 
 def create_ui(theme_name="Ocean"):
     css = """
+    /* Royal Gold Text Styling */
+    * {
+        color: #DAA520 !important;
+    }
+    
+    /* Specific styling for different elements */
+    h1, h2, h3, h4, h5, h6 {
+        color: #FFD700 !important;
+        text-shadow: 0 0 5px #DAA520;
+    }
+    
+    /* Labels and form elements */
+    label, .label {
+        color: #DAA520 !important;
+    }
+    
+    /* Input fields */
+    input, textarea, select {
+        color: #DAA520 !important;
+        border-color: #DAA520 !important;
+    }
+    
+    /* Buttons */
+    button {
+        color: #DAA520 !important;
+        border-color: #DAA520 !important;
+    }
+    
+    /* Links */
+    a {
+        color: #FFD700 !important;
+    }
+    
+    a:hover {
+        color: #FFA500 !important;
+    }
+    
+    /* Chat messages */
+    .message {
+        color: #DAA520 !important;
+    }
+    
+    /* Footer */
+    .footer {
+        color: #DAA520 !important;
+    }
+    
+    .footer a {
+        color: #FFD700 !important;
+    }
+    
+    .footer a:hover {
+        color: #FFA500 !important;
+    }
+    
+    /* Gradio specific elements */
     .gradio-container {
         width: 70vw !important; 
         max-width: 70% !important; 
@@ -40,6 +96,21 @@ def create_ui(theme_name="Ocean"):
         padding: 15px;
         border-radius: 10px;
     }
+    .footer {
+        text-align: center;
+        margin-top: 20px;
+        padding: 10px;
+        border-top: 1px solid #DAA520;
+        color: #DAA520;
+    }
+    .footer a {
+        color: #FFD700;
+        text-decoration: none;
+    }
+    .footer a:hover {
+        text-decoration: underline;
+        color: #FFA500;
+    }
     """
 
     # dark mode in default
@@ -57,12 +128,12 @@ def create_ui(theme_name="Ocean"):
     ui_manager = WebuiManager()
 
     with gr.Blocks(
-            title="Browser Use WebUI", theme=theme_map[theme_name], css=css, js=js_func,
+            title="🌐 Demon Browser", theme=theme_map[theme_name], css=css, js=js_func,
     ) as demo:
         with gr.Row():
             gr.Markdown(
                 """
-                # 🌐 Browser Use WebUI
+                # 🌐 Demon Browser
                 ### Control your browser with AI assistance
                 """,
                 elem_classes=["header-text"],
@@ -81,7 +152,7 @@ def create_ui(theme_name="Ocean"):
             with gr.TabItem("🎁 Agent Marketplace"):
                 gr.Markdown(
                     """
-                    ### Agents built on Browser-Use
+                    ### Agents built on Demon Browser
                     """,
                     elem_classes=["tab-header-text"],
                 )
@@ -91,5 +162,16 @@ def create_ui(theme_name="Ocean"):
 
             with gr.TabItem("📁 Load & Save Config"):
                 create_load_save_config_tab(ui_manager)
+
+        # Footer
+        with gr.Row():
+            gr.HTML(
+                """
+                <div class="footer">
+                    Powered By Demon AI | Developed by <a href="https://gs-tejas-hub.github.io/Demon-s-Portfolio/" target="_blank">Demon King</a>
+                </div>
+                """,
+                elem_classes=["footer"]
+            )
 
     return demo
