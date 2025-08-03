@@ -1,6 +1,5 @@
 # 🌐 Demon Browser - Control your browser with AI assistance
 
-<img src="./assets/web-ui.png" alt="Demon Browser" width="full"/>
 
 <br/>
 
@@ -192,7 +191,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - **WarmShao**: Original browser-use project
-- **Demon King**: Demon Browser branding and development
+- **Demon King**: Demon Browser branding and development with many changes
 - **Demon AI**: Powered by Demon AI
 
 ---
